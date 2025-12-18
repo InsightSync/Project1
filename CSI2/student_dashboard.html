@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | Academic Tracker</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i class="fa-solid fa-graduation-cap"></i>
+                Academic Tracker
+            </div>
+
+            <nav>
+                <a href="#dashboard" class="menu-item active">
+                    <i class="fa-solid fa-table-columns"></i> Dashboard
+                </a>
+                <a href="#subjects" class="menu-item">
+                    <i class="fa-solid fa-book-open"></i> Subjects
+                </a>
+                <a href="#attendance" class="menu-item">
+                    <i class="fa-solid fa-clipboard-user"></i> Attendance
+                </a>
+                <a href="#notifications" class="menu-item">
+                    <i class="fa-solid fa-bell"></i> Notifications
+                </a>
+            </nav>
+
+            <div style="position: absolute; bottom: 2rem; width: calc(100% - 3rem);">
+                <a href="index.html" class="menu-item text-danger" style="color: var(--danger);">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="flex justify-between items-center mb-8">
+                <div class="flex items-center gap-4">
+                    <i class="fa-solid fa-bars menu-toggle"></i>
+                    <h2 class="text-xl">Dashboard</h2>
+                </div>
+
+                <div class="flex items-center gap-6">
+                    <div class="relative" style="cursor: pointer;">
+                        <i class="fa-solid fa-bell text-xl text-gray"></i>
+                        <span
+                            style="position: absolute; top: -5px; right: -5px; width: 10px; height: 10px; background: var(--danger); border-radius: 50%;"></span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <img src="https://ui-avatars.com/api/?name=Alex+Student&background=random"
+                            style="width: 40px; height: 40px; border-radius: 50%;" alt="Profile">
+                        <div class="hidden-mobile">
+                            <p style="font-weight: 600; line-height: 1;">Alex Student</p>
+                            <p class="text-sm text-gray">Computer Science</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- A. Subject-wise Academic Tracker (Mind Map View) -->
+            <section id="subjects" class="mb-8">
+                <h3 class="text-xl mb-4">Academic Tracker</h3>
+
+                <div class="grid gap-4">
+                    <!-- Subject 1: Data Structures -->
+                    <div class="card p-0" style="padding: 0; overflow: hidden;">
+                        <div class="expand-trigger flex justify-between items-center p-4 bg-light cursor-pointer"
+                            style="padding: 1.5rem; cursor: pointer; background-color: white;">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    style="width: 40px; height: 40px; background: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                                    <i class="fa-solid fa-code"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg">Data Structures & Algo</h4>
+                                    <p class="text-sm text-gray">CS-101 • Mr. Sharma</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-down text-gray transition-transform chevron-icon"></i>
+                        </div>
+
+                        <!-- Expanded Content -->
+                        <div class="hidden border-t border-gray-200"
+                            style="border-top: 1px solid var(--border); background-color: #fafafa;">
+                            <div class="p-4 grid grid-cols-3 gap-6" style="padding: 1.5rem;">
+                                <!-- Labs Column -->
+                                <div>
+                                    <h5 class="text-sm font-bold text-gray uppercase mb-3"><i
+                                            class="fa-solid fa-flask mr-2"></i> Labs</h5>
+                                    <div class="subject-tree">
+                                        <div class="tree-node card p-3 mb-2" style="padding: 1rem;">
+                                            <div class="flex justify-between items-start mb-2">
+                                                <span class="text-sm font-semibold">Lab 4: Linked Lists</span>
+                                                <span class="badge badge-pending">Pending</span>
+                                            </div>
+                                            <p class="text-xs text-gray">Due: Dec 20, 2025</p>
+                                        </div>
+                                        <div class="tree-node card p-3 mb-2" style="padding: 1rem;">
+                                            <div class="flex justify-between items-start mb-2">
+                                                <span class="text-sm font-semibold">Lab 5: Trees</span>
+                                                <span class="badge badge-upcoming">Upcoming</span>
+                                            </div>
+                                            <p class="text-xs text-gray">Starts: Dec 22, 2025</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Assignments Column -->
+                                <div>
+                                    <h5 class="text-sm font-bold text-gray uppercase mb-3"><i
+                                            class="fa-solid fa-file-pen mr-2"></i> Assignments</h5>
+                                    <div class="subject-tree">
+                                        <div class="tree-node card p-3 mb-2" style="padding: 1rem;">
+                                            <div class="flex justify-between items-start mb-2">
+                                                <span class="text-sm font-semibold">A2: Sorting Algo</span>
+                                                <span class="badge badge-completed">Done</span>
+                                            </div>
+                                        </div>
+                                        <div class="tree-node card p-3 mb-2" style="padding: 1rem;">
+                                            <div class="flex justify-between items-start mb-2">
+                                                <span class="text-sm font-semibold">A3: Hashing</span>
+                                                <span class="badge badge-pending">Pending</span>
+                                            </div>
+                                            <p class="text-xs text-danger">Overdue!</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Projects Column -->
+                                <div>
+                                    <h5 class="text-sm font-bold text-gray uppercase mb-3"><i
+                                            class="fa-solid fa-rocket mr-2"></i> Projects</h5>
+                                    <div class="subject-tree">
+                                        <div class="tree-node card p-3 mb-2" style="padding: 1rem;">
+                                            <div class="flex justify-between items-start mb-2">
+                                                <span class="text-sm font-semibold">Mini Project</span>
+                                                <span class="badge badge-upcoming">Upcoming</span>
+                                            </div>
+                                            <p class="text-xs text-gray">Group: Alpha</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Subject 2: Web Dev -->
+                    <div class="card p-0" style="padding: 0; overflow: hidden;">
+                        <div class="expand-trigger flex justify-between items-center p-4 bg-light cursor-pointer"
+                            style="padding: 1.5rem; cursor: pointer; background-color: white;">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    style="width: 40px; height: 40px; background: #fce7f3; color: var(--secondary); display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                                    <i class="fa-solid fa-laptop-code"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg">Web Technologies</h4>
+                                    <p class="text-sm text-gray">CS-102 • Ms. Gupta</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-down text-gray transition-transform chevron-icon"></i>
+                        </div>
+
+                        <!-- Expanded Content -->
+                        <div class="hidden border-t border-gray-200"
+                            style="border-top: 1px solid var(--border); background-color: #fafafa;">
+                            <div class="p-4" style="padding: 1.5rem;">
+                                <p class="text-center text-gray">No pending tasks for this subject.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="grid grid-cols-2 gap-6">
+                <!-- B. Attendance Section -->
+                <section id="attendance">
+                    <h3 class="text-xl mb-4">Attendance</h3>
+                    <div class="card">
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="font-semibold">Data Structures</span>
+                                <span class="text-sm text-success font-bold">85%</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width: 85%; background-color: var(--success);">
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray mt-1">Present: 17 • Absent: 3</p>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="font-semibold">Web Technologies</span>
+                                <span class="text-sm text-danger font-bold">60%</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width: 60%; background-color: var(--danger);">
+                                </div>
+                            </div>
+                            <p class="text-xs text-danger mt-1">Warning: Below 75% • Present: 12 • Absent: 8</p>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-semibold">Database Systems</span>
+                                <span class="text-sm text-warning font-bold">75%</span>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width: 75%; background-color: var(--warning);">
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray mt-1">Present: 15 • Absent: 5</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- C. Notifications Panel -->
+                <section id="notifications">
+                    <h3 class="text-xl mb-4">Notifications</h3>
+                    <div class="card">
+                        <ul class="flex flex-col gap-4">
+                            <li class="flex gap-4 items-start">
+                                <div
+                                    style="min-width: 8px; height: 8px; background: var(--primary); border-radius: 50%; margin-top: 6px;">
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold">New Assignment Uploaded</p>
+                                    <p class="text-xs text-gray">Web Tech: A3 - CSS Grid Layout</p>
+                                    <p class="text-xs text-gray mt-1">2 mins ago</p>
+                                </div>
+                            </li>
+                            <li class="flex gap-4 items-start">
+                                <div
+                                    style="min-width: 8px; height: 8px; background: var(--danger); border-radius: 50%; margin-top: 6px;">
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold">Attendance Warning</p>
+                                    <p class="text-xs text-gray">Your attendance in Web Tech is low (60%).</p>
+                                    <p class="text-xs text-gray mt-1">1 hour ago</p>
+                                </div>
+                            </li>
+                            <li class="flex gap-4 items-start">
+                                <div
+                                    style="min-width: 8px; height: 8px; background: var(--success); border-radius: 50%; margin-top: 6px;">
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold">Lab Graded</p>
+                                    <p class="text-xs text-gray">Data Structures Lab 3: 10/10</p>
+                                    <p class="text-xs text-gray mt-1">Yesterday</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Inline script to demonstrate active content loading or expanding all for demo
+        // For now, let's auto-expand the first subject for better UX on first load
+        document.querySelector('.expand-trigger').click();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Tracker | Student & Teacher Dashboard</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand">
+                <i class="fa-solid fa-graduation-cap"></i>
+                Academic Tracker
+            </a>
+            <div class="nav-links">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="register.html" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="hero">
+        <div class="hero-content">
+            <div class="badge badge-upcoming mb-4" style="display: inline-block;">Beta Version 1.0</div>
+            <h1 class="hero-title">Manage Your Academic Life With Ease</h1>
+            <p class="hero-subtitle">
+                Track labs, assignments, projects, and attendance in one beautiful, organized place. 
+                Designed for both students and teachers.
+            </p>
+            
+            <div class="flex flex-col gap-4 justify-center" style="max-width: 400px; margin: 0 auto;">
+                <div class="card p-4 flex justify-between items-center" style="padding: 1.5rem;">
+                    <div class="text-left" style="text-align: left;">
+                        <h3 class="text-xl">For Students</h3>
+                        <p class="text-sm text-gray" style="color: var(--gray);">Track progress & grades</p>
+                    </div>
+                    <a href="login.html?role=student" class="btn btn-primary">Login as Student <i class="fa-solid fa-arrow-right ml-2" style="margin-left: 0.5rem;"></i></a>
+                </div>
+
+                <div class="card p-4 flex justify-between items-center" style="padding: 1.5rem;">
+                    <div class="text-left" style="text-align: left;">
+                        <h3 class="text-xl">For Teachers</h3>
+                        <p class="text-sm text-gray" style="color: var(--gray);">Manage classes & content</p>
+                    </div>
+                    <a href="login.html?role=teacher" class="btn btn-outline">Login as Teacher <i class="fa-solid fa-chalkboard-user ml-2" style="margin-left: 0.5rem;"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

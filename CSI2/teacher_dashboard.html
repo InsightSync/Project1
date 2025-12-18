@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard | Academic Tracker</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i class="fa-solid fa-graduation-cap"></i>
+                Academic Tracker
+            </div>
+
+            <nav>
+                <a href="#dashboard" class="menu-item active">
+                    <i class="fa-solid fa-table-columns"></i> Dashboard
+                </a>
+                <a href="#upload" class="menu-item">
+                    <i class="fa-solid fa-cloud-arrow-up"></i> Upload Content
+                </a>
+                <a href="#attendance" class="menu-item">
+                    <i class="fa-solid fa-clipboard-check"></i> Attendance
+                </a>
+                <a href="#students" class="menu-item">
+                    <i class="fa-solid fa-users"></i> Students
+                </a>
+            </nav>
+
+            <div style="position: absolute; bottom: 2rem; width: calc(100% - 3rem);">
+                <a href="index.html" class="menu-item text-danger" style="color: var(--danger);">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="flex justify-between items-center mb-8">
+                <div class="flex items-center gap-4">
+                    <i class="fa-solid fa-bars menu-toggle"></i>
+                    <h2 class="text-xl">Teacher Dashboard</h2>
+                </div>
+
+                <div class="flex items-center gap-6">
+                    <div class="relative" style="cursor: pointer;">
+                        <i class="fa-solid fa-bell text-xl text-gray"></i>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <img src="https://ui-avatars.com/api/?name=Prof+Sharma&background=0D8ABC&color=fff"
+                            style="width: 40px; height: 40px; border-radius: 50%;" alt="Profile">
+                        <div class="hidden-mobile">
+                            <p style="font-weight: 600; line-height: 1;">Mr. Sharma</p>
+                            <p class="text-sm text-gray">Faculty - CS Dept</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="grid grid-cols-2 gap-6 mb-8">
+                <!-- A. Upload Academic Content -->
+                <section id="upload" style="grid-column: span 1;">
+                    <h3 class="text-xl mb-4">Upload Content</h3>
+                    <div class="card">
+                        <form>
+                            <div class="form-group">
+                                <label class="form-label">Select Subject</label>
+                                <select class="form-select">
+                                    <option>Data Structures (CS-101)</option>
+                                    <option>Database Systems (CS-103)</option>
+                                </select>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="form-group">
+                                    <label class="form-label">Content Type</label>
+                                    <select class="form-select">
+                                        <option>Assignment</option>
+                                        <option>Lab Manual</option>
+                                        <option>Project Statement</option>
+                                        <option>Lecture Note</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Due Date</label>
+                                    <input type="date" class="form-input">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Title</label>
+                                <input type="text" class="form-input" placeholder="e.g., Assignment 3">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Description</label>
+                                <textarea class="form-input" rows="3" placeholder="Instructions..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Attachment</label>
+                                <input type="file" class="form-input">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fa-solid fa-cloud-arrow-up mr-2"></i> Upload & Notify Students
+                            </button>
+                            <p class="text-xs text-gray text-center mt-2">
+                                <i class="fa-solid fa-circle-info"></i> Students will be notified automatically.
+                            </p>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- B. Attendance Upload Section -->
+                <section id="attendance" style="grid-column: span 1;">
+                    <h3 class="text-xl mb-4">Attendance Manager</h3>
+                    <div class="card">
+                        <div class="flex justify-between items-end mb-4">
+                            <div class="form-group mb-0" style="flex: 1; margin-right: 1rem;">
+                                <label class="form-label">Subject</label>
+                                <select class="form-select">
+                                    <option>Data Structures (CS-101)</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-0">
+                                <label class="form-label">Date</label>
+                                <input type="date" class="form-input" value="2025-12-18">
+                            </div>
+                        </div>
+
+                        <div style="max-height: 400px; overflow-y: auto;">
+                            <table class="attendance-table">
+                                <thead>
+                                    <tr>
+                                        <th>Roll No</th>
+                                        <th>Student Name</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Row 1 -->
+                                    <tr>
+                                        <td>101</td>
+                                        <td>Alex Student</td>
+                                        <td>
+                                            <label class="cursor-pointer">
+                                                <input type="checkbox" checked
+                                                    style="width: 16px; height: 16px; accent-color: var(--success);">
+                                                <span class="ml-2 text-sm">Present</span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <!-- Row 2 -->
+                                    <tr>
+                                        <td>102</td>
+                                        <td>John Doe</td>
+                                        <td>
+                                            <label class="cursor-pointer">
+                                                <input type="checkbox" checked
+                                                    style="width: 16px; height: 16px; accent-color: var(--success);">
+                                                <span class="ml-2 text-sm">Present</span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <!-- Row 3 -->
+                                    <tr>
+                                        <td>103</td>
+                                        <td>Jane Smith</td>
+                                        <td>
+                                            <label class="cursor-pointer">
+                                                <input type="checkbox"
+                                                    style="width: 16px; height: 16px; accent-color: var(--success);">
+                                                <span class="ml-2 text-sm text-gray">Absent</span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>104</td>
+                                        <td>Mike Ross</td>
+                                        <td>
+                                            <label class="cursor-pointer">
+                                                <input type="checkbox" checked
+                                                    style="width: 16px; height: 16px; accent-color: var(--success);">
+                                                <span class="ml-2 text-sm">Present</span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>105</td>
+                                        <td>Rachel Green</td>
+                                        <td>
+                                            <label class="cursor-pointer">
+                                                <input type="checkbox" checked
+                                                    style="width: 16px; height: 16px; accent-color: var(--success);">
+                                                <span class="ml-2 text-sm">Present</span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-4 flex justify-end">
+                            <button class="btn btn-primary">Save Attendance</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-3 gap-6">
+                <div class="card p-4 flex items-center gap-4">
+                    <div
+                        style="width: 50px; height: 50px; background: var(--primary-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--primary);">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl">120</h4>
+                        <p class="text-sm text-gray">Total Students</p>
+                    </div>
+                </div>
+                <div class="card p-4 flex items-center gap-4">
+                    <div
+                        style="width: 50px; height: 50px; background: #fef3c7; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--warning);">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl">15</h4>
+                        <p class="text-sm text-gray">Pending Reviews</p>
+                    </div>
+                </div>
+                <div class="card p-4 flex items-center gap-4">
+                    <div
+                        style="width: 50px; height: 50px; background: #d1fae5; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--success);">
+                        <i class="fa-solid fa-check-circle"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl">98%</h4>
+                        <p class="text-sm text-gray">Submission Rate</p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
